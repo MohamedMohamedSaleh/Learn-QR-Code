@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tester/qr_image.dart';
+import 'package:tester/qr_scanner.dart';
 
 class QRCode extends StatefulWidget {
   const QRCode({super.key});
@@ -10,6 +11,7 @@ class QRCode extends StatefulWidget {
 
 class _QRCodeState extends State<QRCode> {
   TextEditingController controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,12 +37,23 @@ class _QRCodeState extends State<QRCode> {
         ),
         FilledButton(
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => QRCodeImage(controller: controller),));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => QRCodeImage(controller: controller),
+                ));
           },
           child: const Text("Create QR Code"),
         ),
         FilledButton(
-          onPressed: () {},
+          onPressed: () async {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const QRScanner(),
+              ),
+            );
+          },
           child: const Text("Scan QR Code"),
         ),
       ]),

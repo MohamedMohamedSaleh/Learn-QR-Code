@@ -3,7 +3,7 @@ import 'package:qr_flutter/qr_flutter.dart';
 
 class QRCodeImage extends StatelessWidget {
   const QRCodeImage({super.key, required this.controller});
-  final TextEditingController controller;
+  final TextEditingController controller ;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
